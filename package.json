@@ -1,0 +1,22 @@
+{
+  "name": "manga-proxy",
+  "version": "1.0.0",
+  "description": "Simple proxy server for MangaPark images with CORS support",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "proxy",
+    "mangapark",
+    "cors",
+    "images"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}
