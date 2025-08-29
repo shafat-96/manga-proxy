@@ -2,6 +2,7 @@ const express = require('express');
 const { fetchMangaParkImage } = require('./providers/mangapark');
 const { fetchMangakakalotImage } = require('./providers/mangakakalot');
 const { fetchMangabuddyImage } = require('./providers/mangabuddy');
+const { ipv6ProxyHandler } = require('./ipv6Proxy');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,12 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
+
+/**
+ * ANY /i6?url=<TARGET_URL>[&headers=<JSON>]
+ * General-purpose proxy with optional IPv6 rotation and API token auth.
+ */
+app.all('/i6', ipv6ProxyHandler);
 
 /**
  * GET /mangapark?url=<IMAGE_URL>
